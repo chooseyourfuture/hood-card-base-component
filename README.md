@@ -5,7 +5,7 @@
 npm install
 ```
 
-Also create your own
+Also create your own .env file based on the .env.template.
 
 ### Compiles and hot-reloads for development
 ```
