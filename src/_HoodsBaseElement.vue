@@ -235,6 +235,7 @@ body {
   &__title {
     color: $color-primary;
     margin-bottom: 8px;
+    font-weight: 600;
   }
 
   &__thumbnail {
