@@ -16,7 +16,7 @@ new Vue({
       props: {
         apiKey: process.env.VUE_APP_API_KEY,
         // neighbourhoodId: "7"
-        municipalityId: "1",
+        regionId: "1",
         coordinates: {
           lat: 60.449418,
           lon: 22.2745824

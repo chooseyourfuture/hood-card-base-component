@@ -52,16 +52,12 @@ const getNeighbourhood = ({ apiKey, neighbourhoodId }) => {
 /**
  * `getNeighbourhoodByCoordinates` gets a neighbourhood based on its coordinates.
  */
-const getNeighbourhoodByCoordinates = ({
-  apiKey,
-  municipalityId,
-  coordinates
-}) => {
+const getNeighbourhoodByCoordinates = ({ apiKey, regionId, coordinates }) => {
   return axios
-    .get(`${API_BASE_URL}/municipalities/${municipalityId}/hoods`, {
+    .get(`${API_BASE_URL}/regions/${regionId}/hoods`, {
       params: {
         token: apiKey,
-        distance: `${coordinates.lat},${coordinates.lon}`
+        distance: `${coordinates.lat},${coordinates.lon},1`
       }
     })
     .then(({ data }) => {
@@ -83,7 +79,7 @@ const getNeighbourhoodByCoordinates = ({
 
 export const loadData = ({
   neighbourhoodId,
-  municipalityId,
+  regionId,
   coordinates,
   apiKey
 }) => {
@@ -92,20 +88,22 @@ export const loadData = ({
     // the neighbourhood based on it
     return getNeighbourhood({ neighbourhoodId, apiKey });
   } else if (
-    typeof municipalityId !== "undefined" &&
+    typeof regionId !== "undefined" &&
     typeof coordinates !== "undefined"
   ) {
-    // If there is a municipalityId and coordinates for the
+    // If there is a regionId and coordinates for the
     // point, get the neighbourhood using those.
     return getNeighbourhoodByCoordinates({
-      municipalityId,
+      regionId,
       coordinates,
       apiKey
     });
   }
 
   // eslint-disable-next-line no-console
-  console.error("Please provide either neighbourhood ID or coordinates!");
+  console.error(
+    "Please provide either neighbourhood ID or coordinates and region ID!"
+  );
 
   return new Promise(resolve => {
     resolve({ neighbourhood: undefined, error: true });
@@ -125,7 +123,7 @@ const mixin = {
     init() {
       return loadData({
         apiKey: this.apiKey,
-        municipalityId: this.municipalityId,
+        regionId: this.regionId,
         coordinates: this.coordinates,
         neighbourhoodId: this.neighbourhoodId
       }).then(({ error, neighbourhood }) => {

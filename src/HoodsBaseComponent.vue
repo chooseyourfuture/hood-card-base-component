@@ -37,7 +37,7 @@ export default {
       default: undefined
     },
 
-    municipalityId: {
+    regionId: {
       type: [Number, String],
       required: false,
       default: undefined

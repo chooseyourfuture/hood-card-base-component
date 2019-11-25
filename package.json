@@ -5,8 +5,7 @@
   "main": "src/index.js",
   "homepage": "https://github.com/chooseyourfuture/hood-card-base-component",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "dev": "vue-cli-service serve",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

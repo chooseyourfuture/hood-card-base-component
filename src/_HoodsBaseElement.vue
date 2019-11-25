@@ -190,10 +190,7 @@ export default {
 
   methods: {
     openPage() {
-      /**
-       * TODO: Open in a new tab
-       */
-      window.top.location.href = this.readMoreLink;
+      window.top.open(this.readMoreLink, "_blank");
     }
   }
 };
