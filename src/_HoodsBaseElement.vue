@@ -62,9 +62,15 @@
         <div class="hoods-preview__footer">
           <v-btn @click="openPage" outlined>{{ readMoreText }}</v-btn>
 
-          <div class="hoods-preview_powered-by">
-            {{ poweredByText }}
-            <img src="https://hoods.fi/assets/images/hoods-logo.svg" />
+          <div class="hoods-preview__powered-by">
+            <div class="hoods-preview__powered-text">
+              {{ poweredByText }}
+            </div>
+
+            <img
+              class="hoods-preview__hoods-icon"
+              src="https://hoods.fi/assets/images/hoods-logo.svg"
+            />
           </div>
         </div>
       </div>
@@ -257,6 +263,22 @@ body {
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
+  }
+
+  &__powered-by {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  &__powered-text {
+    white-space: nowrap;
+  }
+
+  &__hoods-icon {
+    height: 32px;
+    margin-left: 8px;
   }
 
   .hoods-preview__features .v-icon {
