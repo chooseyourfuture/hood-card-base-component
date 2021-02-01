@@ -15,7 +15,7 @@ new Vue({
     h(HoodsBaseComponent, {
       props: {
         apiKey: process.env.VUE_APP_API_KEY,
-        // neighbourhoodId: "7"
+        neighbourhoodId: "42",
         regionId: "1",
         coordinates: {
           lat: 60.449418,

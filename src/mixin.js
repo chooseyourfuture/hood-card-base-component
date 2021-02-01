@@ -4,7 +4,7 @@
 
 import axios from "axios";
 
-const API_BASE_URL = "https://api2.hoods.fi";
+const API_BASE_URL = "https://api.hoods.fi";
 
 /**
  * `formatNeighbourhood` adjusts the data received from the API so it
